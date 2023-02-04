@@ -1,4 +1,4 @@
-import * as utils from "@core/utils/utils";
+import * as utils from "@core/utils";
 import {fileUpload, getFile} from "./file.service";
 
 async function FileController(req: Request, env: unknown): Promise<Response> {

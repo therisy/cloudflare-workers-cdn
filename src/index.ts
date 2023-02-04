@@ -1,4 +1,4 @@
-import * as utils from '@core/utils/utils';
+import * as utils from '@core/utils';
 import FileController from "@modules/file/file.controller";
 
 // Define the Worker logic

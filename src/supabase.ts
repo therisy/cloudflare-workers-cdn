@@ -1,5 +1,5 @@
 import {createClient} from "@supabase/supabase-js";
-import {BUCKET} from "@core/utils/utils";
+import {BUCKET} from "@constants";
 
 const SUPABASE_URL = "";
 const SUPABASE_KEY = "";

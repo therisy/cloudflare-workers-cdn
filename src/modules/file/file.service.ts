@@ -1,10 +1,21 @@
 import {Generator} from "snowflake-generator";
-import {getBuffer, uploadFile} from "@core/utils/supabase";
-import {MAX_AGE, MAX_FILE_SIZE, SITE_PATH, SITE_URL, toError} from "@core/utils/utils";
+import {getBuffer, uploadFile} from "@supabase";
+import {toError} from "@core/utils";
+import {MAX_AGE, MAX_FILE_SIZE, SITE_PATH, SITE_URL} from "@constants";
+
+const MIME_TYPES = ["image/png", "image/jpeg", "image/gif"];
 
 export const fileUpload = async (req: Request, env: unknown): Promise<Response> => {
     const formData = await req.formData();
     const image = formData.get('image') as File;
+    if (!image) {
+        return toError("No image provided", 400);
+    }
+
+    if (!MIME_TYPES.includes(image.type)) {
+        return toError("Invalid file type", 400);
+    }
+
     const size = image.size;
     if (size > MAX_FILE_SIZE) {
         return toError("File size too large", 413);

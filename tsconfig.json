@@ -23,7 +23,8 @@
       "@modules/*": ["./src/modules/*"],
       "@realm": ["./src/realm"],
       "@supabase": ["./src/supabase"],
-      "@utils": ["./src/utils"]
+      "@utils": ["./src/utils"],
+      "@constants": ["./src/constants"],
     },
     "typeRoots": ["./src/@types"]
   },
